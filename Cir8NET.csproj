@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="C1Way.cs" />
+    <Compile Include="CCharger.cs" />
     <Compile Include="CComp.cs" />
     <Compile Include="CConduit.cs" />
     <Compile Include="Cir8.cs" />

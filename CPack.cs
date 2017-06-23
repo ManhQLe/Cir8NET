@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Threading;
 namespace Cir8NET
 {
-    public delegate void CPackFX(CPack Pack);
+    public delegate void CPackFX(CPack Pack, string Contact = null);
     public class CPack : CComp
     {
         CPort _Ports = new CPort();
@@ -135,7 +135,7 @@ namespace Cir8NET
                     Ports.Values[Contact] = Val;
                     if (!Already && ++ICount == Ins.Length)
                     {
-                        this.FX(this);
+                        this.FX(this,Contact);
                         _HasInput.Clear();
                         ICount = 0;
                     }
@@ -149,7 +149,7 @@ namespace Cir8NET
                     if (!Already && ++ICount >= Ins.Length
                         || ICount >= Ins.Length
                     )
-                        this.FX(this);
+                        this.FX(this, Contact);
                 }
             }
         }
