@@ -40,7 +40,7 @@ namespace Cir8NET
                 return pair.Key == Contact && pair.Value == Comp;
             });
             if (idx < 0)
-            {                
+            {				
                 Contacts.Add(new KeyValuePair<string, IComp>(Contact, Comp));
                 Comp.Connect(this, Contact);
             }
@@ -62,9 +62,7 @@ namespace Cir8NET
                 if (pair.Value != Comp && pair.Key != Contact) {
                     if (ParallelTrx)
                     {
-
-                        //new Thread(() => AsyncVirbrate(this, pair, Val)).Start();
-                        Task.Run(() => AsyncVirbrate(this, pair, Val));
+						new Thread(() => AsyncVirbrate(this, pair, Val)).Start();						
                     }
                     else
                         pair.Value.OnVibrate(this, pair.Key, Val);
